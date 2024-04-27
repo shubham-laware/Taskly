@@ -43,7 +43,7 @@ function Tasks({tasks}) {
                         <img src={threeDots} alt="..." className=' w-[100%]'></img>
                     </button>
                     {
-                        index===optionsIndex &&<Options taskIndex={index} />
+                        index===optionsIndex &&<Options taskIndex={index} taskid = {task._id}/>
 
                     }
                 </div>

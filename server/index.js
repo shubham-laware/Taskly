@@ -7,7 +7,7 @@ import SignUpRoute from './src/routes/auth/signup.route.js';
 import GetTasksRoute from './src/routes/task/getTask.route.js';
 import AddTaskRoute from './src/routes/task/addTask.route.js'
 import MarkCompleteRoute from './src/routes/task/markComplete.route.js'
-
+import DeltetaskRoute from './src/routes/task/deleteTask.route.js'
 
 const app=express();
 
@@ -23,6 +23,8 @@ app.use('/login',LoginRoute);
 app.use('/get',GetTasksRoute);
 app.use('/taskly',AddTaskRoute);
 app.use('/mark',MarkCompleteRoute);
+app.use('/delete',DeltetaskRoute);
+
 
 app.get('/',(req,res)=>{
     res.send('Hello')

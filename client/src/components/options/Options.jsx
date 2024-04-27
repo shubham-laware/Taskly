@@ -3,7 +3,7 @@ import axios from "axios";
 import myContext from "../../context/myContext.js";
 import cancelIcon from "../../assets/cancel-icon.svg";
 
-function Options({taskIndex}) {
+function Options({taskIndex ,taskid}) {
 
   const [optionsVisibility, setOptionsVisibility] = useState("hidden");
   
@@ -25,6 +25,18 @@ function Options({taskIndex}) {
     }
   }
 
+  const handleDeleteTask=async(taskid)=>{
+    try {
+      console.log('clicked')
+      console.log(taskid)
+      const response=await axios.post(`http://localhost:8000/delete/${taskid}`,{
+        withCredentials:true
+        
+    })
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <div
       className={`flex gap-2 text-xs absolute right-0 top-2 bg-[#fff] shadow-2xl rounded-lg pr-2 ${optionsVisibility} z-10 `}
@@ -42,7 +54,7 @@ function Options({taskIndex}) {
         <button className=" w-[100px] bg-[#7761f0] h-[30px] rounded-md text-[#fff] hover:bg-[#8975f7]">
           Update
         </button>
-        <button className=" w-[100px] bg-[#7761f0] h-[30px] rounded-md text-[#fff] hover:bg-[#8975f7]">
+        <button className=" w-[100px] bg-[#7761f0] h-[30px] rounded-md text-[#fff] hover:bg-[#8975f7]" onClick={()=>handleDeleteTask(taskid)}>
           Delete
         </button>
       </div>
